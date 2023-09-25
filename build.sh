@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-export PREFIX="$HOME/project/aysh_os/tools/opt/cross"
+export PREFIX="$HOME/project/ayush_os/tools/opt/cross"
 export TARGET=i686-elf
 export PATH="$PREFIX/bin:$PATH"
 
