@@ -3,4 +3,4 @@
 
 NOTES:
 
-qemu-system-x86-64 -hda ./boot.bin
+qemu-system-x86-64 -hda ./bin/os.bin
