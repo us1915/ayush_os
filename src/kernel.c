@@ -1,6 +1,7 @@
 #include "kernel.h"
 #include "intr/intr.h"
 #include "term/term.h"
+#include "io/io.h"
 
 extern void intr_divide_by_zero_test();
 
@@ -14,6 +15,8 @@ void kernel_main(){
     intr_desc_init(); 
 
     //Interrupt fault test for divide by zero
-    intr_divide_by_zero_test();
+    //intr_divide_by_zero_test();
+
+    outb(0x60, 0xFE);
 
 }

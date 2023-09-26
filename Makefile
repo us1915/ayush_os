@@ -1,4 +1,4 @@
-FILES = ./build/kernel.asm.o ./build/kernel.o ./build/intr.asm.o ./build/term.o ./build/intr.o ./build/memory.o
+FILES = ./build/kernel.asm.o ./build/kernel.o ./build/intr.asm.o ./build/term.o ./build/intr.o ./build/memory.o ./build/io.asm.o
 INCLUDES = -I./src
 FLAGS = -m32 -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc
 
@@ -32,6 +32,9 @@ all: ./bin/boot.bin ./bin/kernel.bin
 
 ./build/term.o: ./src/term/term.c
 	i686-elf-gcc $(INCLUDES) -I./src/term $(FLAGS) -std=gnu99 -c ./src/term/term.c -o ./build/term.o
+
+./build/io.asm.o: ./src/io/io.asm
+	nasm -f elf -g ./src/io/io.asm -o ./build/io.asm.o
 
 clean:
 	rm -rf ./bin/boot.bin
