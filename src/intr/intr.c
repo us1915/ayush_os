@@ -1,6 +1,7 @@
 #include "intr.h"
 #include "kernel.h"
 #include "memory/memory.h"
+#include "term/term.h"
 
 struct intr_desc interrupt_desciptors[TOTAL_INTERRUPTS];
 struct intr_desc_tr interrupt_descriptr_tr;

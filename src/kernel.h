@@ -5,6 +5,5 @@
 #include <stddef.h>
 
 void kernel_main();
-void str_print(const char* str);
 
 #endif
