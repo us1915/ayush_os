@@ -1,4 +1,5 @@
 #include "kernel.h"
+#include "intr/intr.h"
 
 
 //////////////////////////////
@@ -22,7 +23,7 @@ size_t str_length(const char* str){
     return str_len;
 }
 
-void render_title(const char* str){
+void str_print(const char* str){
 
     uint16_t* video_mem = (uint16_t*) (0xB8000);
 
@@ -32,10 +33,18 @@ void render_title(const char* str){
 }
 
 ///////////////////////////////
+extern void intr_divide_by_zero_test();
 
 void kernel_main(){
 
     //Render title on Boot screen
-    render_title("Ayush_OS initializing... August 2023 (c)");
+    str_print("Ayush_OS initializing... August 2023 (c)");
+
+
+    //Initialialize Interrupt Table
+    intr_desc_init(); 
+
+    //Interrupt fault test for divide by zero
+    intr_divide_by_zero_test();
 
 }

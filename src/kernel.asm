@@ -1,5 +1,7 @@
 [BITS 32]
-global _start
+global _start ;global export
+global intr_divide_by_zero_test
+
 extern kernel_main
 
 CODE_SEG equ 0x08
@@ -26,6 +28,13 @@ _start:
 
     jmp $
 
-    
+intr_divide_by_zero_test:
+    ;mov eax, 0
+    ;div eax
+
+    ;alternatively call interrupt number 32 we defined in intr.c
+    int 32
+
+
 ; assembly dont do alignment like C so add padding to 512 to make a nice alignment     
 times 512-($ - $$) db 0
