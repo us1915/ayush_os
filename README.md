@@ -50,7 +50,9 @@ https://wiki.osdev.org/Main_Page
 Neuromorphic Computing:
 
 https://www.nature.com/articles/s43588-021-00184-y
+
 https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html
+
 https://www.humanbrainproject.eu/en/science-development/focus-areas/neuromorphic-computing/
 
 
