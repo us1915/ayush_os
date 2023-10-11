@@ -2,12 +2,28 @@
 #include "kernel.h"
 #include "memory/memory.h"
 #include "term/term.h"
+#include "io/io.h"
+
 
 struct intr_desc interrupt_desciptors[TOTAL_INTERRUPTS];
 struct intr_desc_tr interrupt_descriptr_tr;
 
 //Defined in intr.asm
 extern void intr_load(void*ptr);
+extern void int_keyboard();
+extern void no_intr();
+
+void no_intr_handler(){
+
+    outb(0x20, 0x20);
+}
+
+void int_keyboard_handler(){
+
+    str_print("Keyboard pressed!\n");
+
+    outb(0x20, 0x20);
+}
 
 //Divide by zero fault
 void intr_divide_by_zero(){
@@ -46,8 +62,16 @@ void intr_desc_init(){
     interrupt_descriptr_tr.limit = sizeof(interrupt_desciptors) - 1;
     interrupt_descriptr_tr.base = (uint32_t)interrupt_desciptors;
 
-    //Use 32 for intr num
-    intr_set(32, intr_divide_by_zero);
+    for(int i=0;i<TOTAL_INTERRUPTS;i++){
+        intr_set(i, no_intr);
+
+    }
+
+    //intr_set(0, intr_divide_by_zero);
+   
+    //0x20 timer interrupt
+    //0x21 keyboard interrupt
+    intr_set(0x20, int_keyboard_handler);
 
     //Load the intr descriptor table
     intr_load((void*)&interrupt_descriptr_tr);
