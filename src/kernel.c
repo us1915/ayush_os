@@ -17,6 +17,6 @@ void kernel_main(){
     //Interrupt fault test for divide by zero
     //intr_divide_by_zero_test();
 
-    outb(0x60, 0xFE);
+    //outb(0x60, 0xFE);
 
 }
