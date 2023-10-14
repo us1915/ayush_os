@@ -55,6 +55,8 @@ https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html
 
 https://www.humanbrainproject.eu/en/science-development/focus-areas/neuromorphic-computing/
 
+https://www.intel.com/content/dam/www/central-libraries/us/en/documents/neuromorphic-computing-loihi-2-brief.pdf
+
 
 
 
