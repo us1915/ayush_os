@@ -3,6 +3,8 @@
 #include "term/term.h"
 #include "io/io.h"
 
+#include "memory/block_heap/block_heap.h"
+
 extern void intr_divide_by_zero_test();
 
 void kernel_main(){
@@ -13,6 +15,9 @@ void kernel_main(){
 
     //Initialialize Interrupt Table
     intr_desc_init(); 
+
+    //Initialize Heap memory
+    heap_init();
 
     //Interrupt fault test for divide by zero
     //intr_divide_by_zero_test();
